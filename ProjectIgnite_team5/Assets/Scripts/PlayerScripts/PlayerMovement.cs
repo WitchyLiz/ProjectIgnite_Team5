@@ -1,29 +1,37 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.XR;
 
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
 
-    public Vector3 MoveDirection;
+    //public variables
+    public Transform Orientation;
 
     // Private variables
-    private float _movementSpeed = 5f;
+
+    //player
     private CharacterController _controller;
+
+    // Movement
+    private float _movementSpeed = 2.5f;
+    private float _gravity = -20f;
+    private float _verticalVelocity;
     private Vector2 _moveInput;
-
-    private float _lookSpeed = 2f;
-    private float _lookLimit = 50f;
-
+    // Rotation
     private Vector2 _mouseRot;
-    private float _mouseY;
+    private float _xRot = 0f;
+    private float _yRot = 0f;
+    private float _lookSpeed = 1.5f;
 
-    private float _jumpForce = 10f;
-
-    [SerializeField]
-    private Transform _playerBody;
-
+    //variables for smoother rotation
+    private float _drag = 0.04f;
+    private float _currentXRot;
+    private float _currentYRot;
+    private float _xRotVelocity;
+    private float _yRotVelocity;
 
     void Awake()
     {
@@ -34,24 +42,63 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        _controller.Move(MoveDirection * _movementSpeed * Time.deltaTime);
-        _playerBody.Rotate(Vector2.up * _mouseRot.x * _lookSpeed);
+        ApplyGravity();
+        GetRotation();
+        Move();
     }
 
-    //This will be called in the player's properties. Look at: player input > events > player > move.
-    public void Move(InputAction.CallbackContext Context)
+    private void GetRotation()
+    {
+        _xRot -= _mouseRot.y;
+        _xRot = Mathf.Clamp(_xRot, -35f, 35f);
+        _yRot += _mouseRot.x;
+
+        _currentXRot = Mathf.SmoothDamp(_currentXRot, _xRot, ref _xRotVelocity, _drag);
+        _currentYRot = Mathf.SmoothDamp(_currentYRot, _yRot, ref _yRotVelocity, _drag);
+
+       transform.rotation = Quaternion.Euler(_currentXRot * _lookSpeed, _currentYRot * _lookSpeed, 0f);
+    }
+
+    private void Move() 
+    {
+        Vector3 direction = GetMoveDirection();
+
+        Vector3 move = direction.normalized * _movementSpeed;
+        move.y = _verticalVelocity;
+
+        _controller.Move(move * Time.deltaTime);
+
+    }
+
+    private void ApplyGravity()
+    {
+        if (_controller.isGrounded)
+            _verticalVelocity = -2f; // small downward force keeps the controller grounded
+        else
+            _verticalVelocity += _gravity * Time.deltaTime;
+    }
+
+    private Vector3 GetMoveDirection()
+    {
+        Vector3 direction = Orientation.forward * _moveInput.y + Orientation.right * _moveInput.x;
+        direction.y = 0f;
+        return direction;
+
+    }
+
+    //This will be called in the player's properties. Look at: player input > events > player > move. Basically just collects the inputs and gives them to this script.
+    public void OnMove(InputAction.CallbackContext Context)
     {
         _moveInput = Context.ReadValue<Vector2>();
-        MoveDirection = new Vector3(_moveInput.x, 0.0f, _moveInput.y);
     }
+
 
     public void Jump(InputAction.CallbackContext Context) 
     {
-        //_Rigidbody.AddForce(Vector3.up * _jumpForce * _Rigidbody.mass, ForceMode.Impulse);
     }
 
-    public void Look(InputAction.CallbackContext Context) 
-    { 
+    public void Look(InputAction.CallbackContext Context)
+    {
         _mouseRot = Context.ReadValue<Vector2>();
     }
 }
