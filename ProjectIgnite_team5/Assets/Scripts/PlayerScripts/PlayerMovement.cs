@@ -73,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
     private void ApplyGravity()
     {
         if (_controller.isGrounded)
-            _verticalVelocity = -2f; // small downward force keeps the controller grounded
+            _verticalVelocity = -2f;
         else
             _verticalVelocity += _gravity * Time.deltaTime;
     }
