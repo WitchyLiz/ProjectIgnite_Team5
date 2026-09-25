@@ -1,12 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.XR;
-
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
-
     //public variables
     public Transform Orientation;
 
@@ -50,14 +47,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void GetRotation()
     {
+
+        // Gets the base rotation
         _xRot -= _mouseRot.y;
         _xRot = Mathf.Clamp(_xRot, -35f, 35f);
         _yRot += _mouseRot.x;
 
+        // Ensures the camera rotates smoothly and doesn't snap.
         _currentXRot = Mathf.SmoothDamp(_currentXRot, _xRot, ref _xRotVelocity, _drag);
         _currentYRot = Mathf.SmoothDamp(_currentYRot, _yRot, ref _yRotVelocity, _drag);
 
-       transform.rotation = Quaternion.Euler(_currentXRot * _lookSpeed, _currentYRot * _lookSpeed, 0f);
+        transform.rotation = Quaternion.Euler(_currentXRot * _lookSpeed, _currentYRot * _lookSpeed, 0f);
     }
 
     private void Move() 
