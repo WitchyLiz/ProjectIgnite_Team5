@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     // Movement
     private float _movementSpeed = 2.5f;
     private float _gravity = -20f;
+    private float _jumpHeight = 1.5f;
     private float _verticalVelocity;
     private Vector2 _moveInput;
     // Rotation
@@ -72,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void ApplyGravity()
     {
-        if (_controller.isGrounded)
+        if (_controller.isGrounded && _verticalVelocity < 0f)
             _verticalVelocity = -2f;
         else
             _verticalVelocity += _gravity * Time.deltaTime;
@@ -95,6 +96,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext Context) 
     {
+        if (Context.performed && _controller.isGrounded)
+        {
+            _verticalVelocity = Mathf.Sqrt(_jumpHeight * -2f * _gravity);
+        }
     }
 
     public void Look(InputAction.CallbackContext Context)
