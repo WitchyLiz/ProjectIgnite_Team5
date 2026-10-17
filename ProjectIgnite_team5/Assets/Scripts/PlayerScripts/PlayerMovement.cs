@@ -18,6 +18,9 @@ public class PlayerMovement : MonoBehaviour
     private float _jumpHeight = 1.5f;
     private float _verticalVelocity;
     private Vector2 _moveInput;
+
+    public bool IsMoving => _moveInput.sqrMagnitude > 0.01f;
+
     // Rotation
     private Vector2 _mouseRot;
     private float _xRot = 0f;
