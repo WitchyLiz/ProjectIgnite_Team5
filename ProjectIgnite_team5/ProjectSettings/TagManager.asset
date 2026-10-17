@@ -36,7 +36,7 @@ TagManager:
   - 
   - 
   - 
-  - Depth Fade
+  - Depth Fade Exclusion
   m_SortingLayers:
   - name: Default
     uniqueID: 0
