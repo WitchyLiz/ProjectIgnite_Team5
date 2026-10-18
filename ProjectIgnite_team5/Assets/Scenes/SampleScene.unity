@@ -385,9 +385,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
+  near clip plane: 1
+  far clip plane: 25
+  field of view: 26.991467
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -813,6 +813,7 @@ GameObject:
   - component: {fileID: 1644501484}
   - component: {fileID: 1644501483}
   - component: {fileID: 1644501485}
+  - component: {fileID: 1644501486}
   m_Layer: 0
   m_Name: TemporaryPlayer
   m_TagString: Untagged
@@ -1072,6 +1073,20 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1644501486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644501477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72e49a1e03102cf408c346698377149c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CheckIfInVision
+  _targetObject: {fileID: 8108095776462434554}
+  _camera: {fileID: 963194227}
 --- !u!1 &1794077659
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,6 +1303,83 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &8108095776462434553
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3489819156128304708, guid: 907abff461872b94b9a47ee02d2fe6ea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489819156128304708, guid: 907abff461872b94b9a47ee02d2fe6ea, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489819156128304708, guid: 907abff461872b94b9a47ee02d2fe6ea, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 16.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489819156128304708, guid: 907abff461872b94b9a47ee02d2fe6ea, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489819156128304708, guid: 907abff461872b94b9a47ee02d2fe6ea, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489819156128304708, guid: 907abff461872b94b9a47ee02d2fe6ea, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489819156128304708, guid: 907abff461872b94b9a47ee02d2fe6ea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489819156128304708, guid: 907abff461872b94b9a47ee02d2fe6ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489819156128304708, guid: 907abff461872b94b9a47ee02d2fe6ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489819156128304708, guid: 907abff461872b94b9a47ee02d2fe6ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3906808848929239832, guid: 907abff461872b94b9a47ee02d2fe6ea, type: 3}
+      propertyPath: m_Name
+      value: Rift
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3906808848929239832, guid: 907abff461872b94b9a47ee02d2fe6ea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8108095776462434555}
+  m_SourcePrefab: {fileID: 100100000, guid: 907abff461872b94b9a47ee02d2fe6ea, type: 3}
+--- !u!1 &8108095776462434554 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3906808848929239832, guid: 907abff461872b94b9a47ee02d2fe6ea, type: 3}
+  m_PrefabInstance: {fileID: 8108095776462434553}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8108095776462434555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8108095776462434554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a84b36603dbe34c4abc5f7fed7948777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RiftMovement
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1300,3 +1392,4 @@ SceneRoots:
   - {fileID: 1272407559}
   - {fileID: 538790108}
   - {fileID: 1072367347}
+  - {fileID: 8108095776462434553}
