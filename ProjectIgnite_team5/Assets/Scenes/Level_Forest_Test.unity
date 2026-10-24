@@ -208,6 +208,10 @@ PrefabInstance:
       propertyPath: FootstepPrefab
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2469341064806796919, guid: 26f5b8afba6f0db499ef654a42ae0589, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3371607911672133709, guid: 26f5b8afba6f0db499ef654a42ae0589, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.0396056
@@ -2085,13 +2089,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1942679272}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0.0000016391275, y: 0.7071068, z: -0.7071068, w: 0.0000016391275}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.16915, y: 0.16915, z: 0.16915}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1488151082}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: -180}
 --- !u!64 &1942679274
 MeshCollider:
   m_ObjectHideFlags: 0
