@@ -7,16 +7,17 @@ public class ReturnPlayer : MonoBehaviour
     // https://discussions.unity.com/t/teleporting-character-issue-with-transform-position-in-unity-2018-3/221631
 
     private Vector3 _initialPosition;
-    private string _tagToCheck = "path";
+    private string _tagToCheck = "nonpath";
     private CharacterController _controller;
 
     void Start()
     {
         _controller = GetComponent<CharacterController>();
-        _initialPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        _initialPosition = transform.position;
+        
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(_tagToCheck))
         {
