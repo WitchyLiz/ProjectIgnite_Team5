@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Unity.GraphToolkit.Editor;
 using UnityEngine;
@@ -16,10 +17,11 @@ public class FootstepTrail : MonoBehaviour
     public float minSpeed = 0.1f;           // onder deze snelheid: geen stap
 
     [Header("Audio")]
-    public AudioClip stepSound;
-    public AudioSource audioSource;
+	public AudioClip[] stepSound = new AudioClip[2];
+	public AudioSource audioSource;
+	private bool isFirstStep = true;
 
-    private float stepTimer;
+	private float stepTimer;
     private Vector3 lastPosition;
     private PlayerMovement playerMovement;
     private bool nextIsLeft = true;
@@ -105,7 +107,9 @@ public class FootstepTrail : MonoBehaviour
             footsteps.RemoveAt(0);
         }
 
-        if (audioSource != null && stepSound != null)
-            audioSource.PlayOneShot(stepSound);
-    }
+		int index = isFirstStep ? 0 : 1;
+		audioSource.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
+		audioSource.PlayOneShot(stepSound[index]);
+		isFirstStep = !isFirstStep;
+	}
 }

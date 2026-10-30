@@ -52,8 +52,8 @@ Shader "Custom/DepthVisualization"
 
                 // Skybox is alyways rendered with the farthest depth value
                 // Leave the skybox unchanged
-                if (rawDepth <= 0.0001)
-                    return sceneColor;
+                //if (rawDepth <= 0.0000001)
+                //    return sceneColor;
                
 
                 // Convert the logrithmic depth range to a linear range to be used for ramping.

@@ -69,7 +69,7 @@ Shader "Custom/DepthFade"
 				);
 				
 				//if the masks alpha is 0 just discard the pixel.
-				clip(mask.a - 0.001);
+				clip(mask.a - 0.0001);
 
 				float2 screenUV = IN.positionHCS.xy / _ScaledScreenParams.xy;
 
