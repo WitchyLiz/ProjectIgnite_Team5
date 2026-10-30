@@ -433,7 +433,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 11a0872f99b6c374dbd8243e74a57f26, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.744
+  m_Volume: 0.488
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -6162,7 +6162,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1204754013}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -16932,7 +16932,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 7a2d3fb0dd273204a882ea2000d84210, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.38
   m_Pitch: 1
   Loop: 1
   Mute: 0
