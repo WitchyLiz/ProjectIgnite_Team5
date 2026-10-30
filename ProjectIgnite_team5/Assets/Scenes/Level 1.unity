@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2469341064806796919, guid: 26f5b8afba6f0db499ef654a42ae0589, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 3371607911672133709, guid: 26f5b8afba6f0db499ef654a42ae0589, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.1697
@@ -611,7 +615,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1148434429}
-  - {fileID: 826337175}
   - {fileID: 328237284}
   - {fileID: 1955839086}
   - {fileID: 937138483}
@@ -644,12 +647,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 826337174}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.23740493, z: -0, w: 0.97141075}
-  m_LocalPosition: {x: 34.5, y: 0, z: 61.2}
-  m_LocalScale: {x: 25.191803, y: 7.147241, z: -183.59026}
+  m_LocalRotation: {x: -0, y: -0.23740494, z: -0, w: 0.9714108}
+  m_LocalPosition: {x: 52.11034, y: 1.19857, z: 33.343777}
+  m_LocalScale: {x: 25.191803, y: 7.147241, z: -183.59024}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 784429894}
+  m_Father: {fileID: 862108938}
   m_LocalEulerAnglesHint: {x: 0, y: -27.467, z: 0}
 --- !u!65 &826337176
 BoxCollider:
@@ -729,6 +732,7 @@ Transform:
   - {fileID: 469273955}
   - {fileID: 310326531}
   - {fileID: 539717761}
+  - {fileID: 826337175}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &911203286
@@ -1362,7 +1366,7 @@ GameObject:
   - component: {fileID: 1496940195}
   - component: {fileID: 1496940194}
   - component: {fileID: 1496940193}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Fireflies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1395,7 +1399,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 00f537444ad3c3c4f9d4e1771306b475, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7171,7 +7175,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 385b091c240d8e74e8a910f28ec841fb, type: 2}
+  - {fileID: 2100000, guid: 5a1623b3e10967349bdbcb488a9a507a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
