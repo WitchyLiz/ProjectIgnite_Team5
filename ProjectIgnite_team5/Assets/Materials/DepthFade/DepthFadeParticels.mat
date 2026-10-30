@@ -114,8 +114,8 @@ Material:
     - _FadeEnd: 20
     - _FadeStart: 0
     - _FarDistance: 5.87
-    - _FogEnd: 11.83
-    - _FogStart: 1.8
+    - _FogEnd: 17.04
+    - _FogStart: 0.1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -137,7 +137,7 @@ Material:
     - _XRMotionVectorsPass: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 1, g: 0.740566, b: 0.89743304, a: 1}
+    - _BaseColor: {r: 1, g: 0.4669811, b: 0.7900228, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DepthColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

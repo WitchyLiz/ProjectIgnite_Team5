@@ -1,30 +1,44 @@
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 
 public class ReturnPlayer : MonoBehaviour
 {
-    // Discussions used:
-    // https://discussions.unity.com/t/teleporting-character-issue-with-transform-position-in-unity-2018-3/221631
+    
 
     private Vector3 _initialPosition;
-    private string _tagToCheck = "nonpath";
-    private CharacterController _controller;
+    private string _nonPathTag = "nonpath";
+	private string _finishTag = "Finish";
+	private CharacterController _controller;
+	[SerializeField] private FadeTransition _nonPathFade;
+	[SerializeField] private FadeTransition _finishFade;
 
-    void Start()
+	void Start()
     {
         _controller = GetComponent<CharacterController>();
         _initialPosition = transform.position;
-        
-    }
+
+		if (_nonPathFade == null)
+		{
+			_nonPathFade = GameObject.Find("FadeInOut").GetComponent<FadeTransition>();
+		}
+
+		if (_finishFade == null)
+		{
+			_finishFade = GameObject.Find("EndScreen").GetComponent<FadeTransition>();
+		}
+	}
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(_tagToCheck))
-        {
-            // Transform position won't work because of the character controller. Temportarily turns it off.
-            _controller.enabled = false;
-            transform.position = _initialPosition;
-            _controller.enabled = true;
-        }
-    }
+		if (other.CompareTag(_nonPathTag))
+		{
+			_nonPathFade.StartTeleport(transform, _controller, _initialPosition);
+		}
+		else if (other.CompareTag(_finishTag))
+		{
+			_finishFade.FadeIn();
+		}
+	}
 }

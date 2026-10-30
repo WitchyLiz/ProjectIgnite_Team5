@@ -114,8 +114,8 @@ Material:
     - _FadeEnd: 20
     - _FadeStart: 0
     - _FarDistance: 5.87
-    - _FogEnd: 11.83
-    - _FogStart: 1.8
+    - _FogEnd: 17.04
+    - _FogStart: 0.1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0

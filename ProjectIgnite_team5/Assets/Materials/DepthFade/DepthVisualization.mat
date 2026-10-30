@@ -25,7 +25,7 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _FogEnd: 21.2
+    - _FogEnd: 17.04
     - _FogStart: 0.1
     - _MonochromeStrength: 1
     m_Colors:

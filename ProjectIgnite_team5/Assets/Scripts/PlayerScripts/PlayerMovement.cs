@@ -99,10 +99,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext Context) 
     {
-        if (Context.performed && _controller.isGrounded)
-        {
-            _verticalVelocity = Mathf.Sqrt(_jumpHeight * -2f * _gravity);
-        }
+		//we dont need jumping so its disabled
+        //if (Context.performed && _controller.isGrounded)
+        //{
+        //    _verticalVelocity = Mathf.Sqrt(_jumpHeight * -2f * _gravity);
+        //}
     }
 
     public void Look(InputAction.CallbackContext Context)
