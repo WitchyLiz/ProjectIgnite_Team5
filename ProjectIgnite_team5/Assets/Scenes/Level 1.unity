@@ -208,9 +208,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aa5e35121429674b8e9fb9121b50dd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FadeTransition
-  _group: {fileID: 0}
-  _fadeInDuration: 10
-  _fadeOutDuration: 5
+  group: {fileID: 0}
+  fadeInDuration: 10
+  fadeOutDuration: 5
 --- !u!225 &24647200
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -5178,6 +5178,34 @@ PrefabInstance:
     - target: {fileID: 3615643097749961389, guid: 26f5b8afba6f0db499ef654a42ae0589, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061210744895651839, guid: 26f5b8afba6f0db499ef654a42ae0589, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061210744895651839, guid: 26f5b8afba6f0db499ef654a42ae0589, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061210744895651839, guid: 26f5b8afba6f0db499ef654a42ae0589, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 888596071}
+    - target: {fileID: 9061210744895651839, guid: 26f5b8afba6f0db499ef654a42ae0589, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061210744895651839, guid: 26f5b8afba6f0db499ef654a42ae0589, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnMove
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061210744895651839, guid: 26f5b8afba6f0db499ef654a42ae0589, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: TutorialImage, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9061210744895651839, guid: 26f5b8afba6f0db499ef654a42ae0589, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15304,9 +15332,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 888596068}
   - {fileID: 24647196}
   - {fileID: 1204754014}
-  - {fileID: 888596068}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -15509,6 +15537,7 @@ GameObject:
   - component: {fileID: 888596068}
   - component: {fileID: 888596070}
   - component: {fileID: 888596069}
+  - component: {fileID: 888596071}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -15530,11 +15559,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 629820309}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 2.66}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 60, y: 60}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &888596069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15555,7 +15584,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 66e8df5d018ed8b439a047cf379b6efe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 024fcc86dbe53da46863bc5b2f37d0ad, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15573,6 +15602,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 888596067}
   m_CullTransparentMesh: 1
+--- !u!114 &888596071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888596067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ce180d4be330954da50b71814fbb681, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TutorialImage
+  timeBeforeDrop: 6
+  dropDistance: 150
+  lerpDuration: 1
 --- !u!1001 &911203286
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30474,9 +30518,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aa5e35121429674b8e9fb9121b50dd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FadeTransition
-  _group: {fileID: 0}
-  _fadeInDuration: 5
-  _fadeOutDuration: 5
+  group: {fileID: 0}
+  fadeInDuration: 6
+  fadeOutDuration: 5
 --- !u!114 &1204754017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46527,15 +46571,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c0c1df9ff6acea54e95d8729d7eeac36, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.91339874
+      value: -0.40705526
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c0c1df9ff6acea54e95d8729d7eeac36, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c0c1df9ff6acea54e95d8729d7eeac36, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.40706605
+      value: 0.9134035
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c0c1df9ff6acea54e95d8729d7eeac36, type: 3}
       propertyPath: m_LocalRotation.z
@@ -46547,7 +46591,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c0c1df9ff6acea54e95d8729d7eeac36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 48.041
+      value: 228.04
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c0c1df9ff6acea54e95d8729d7eeac36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z

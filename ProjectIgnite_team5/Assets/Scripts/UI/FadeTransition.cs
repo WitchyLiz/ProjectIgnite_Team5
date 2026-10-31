@@ -5,38 +5,39 @@ using UnityEngine.UI;
 
 public class FadeTransition : MonoBehaviour
 {
-	[SerializeField] private CanvasGroup _group;
-	[SerializeField] private float _fadeInDuration = 10f;
-	[SerializeField] private float _fadeOutDuration = 5f;
+	[SerializeField] private CanvasGroup group;
+	[SerializeField] private float fadeInDuration = 10f;
+	[SerializeField] private float fadeOutDuration = 5f;
 
 	
-	private bool _isTransitioning = false;
+	private bool isTransitioning = false;
 
 	private void Awake()
 	{
-		_group = GetComponent<CanvasGroup>();
-		_group.alpha = 0.0f;
+		group = GetComponent<CanvasGroup>();
+		group.alpha = 0.0f;
 	}
 
 	public void StartTeleport(Transform playerTransform, CharacterController controller, Vector3 targetPosition)
 	{
 		// prevents triggering a new fade while one is already running
-		if (_isTransitioning) return;
+		if (isTransitioning) return;
 		StartCoroutine(FadeAndTeleportRoutine(playerTransform, controller, targetPosition));
 	}
 
 	public void FadeIn()
 	{
-		if (_isTransitioning) return;
-		StartCoroutine(FadeInRoutine());
+		if (isTransitioning) return;
+		isTransitioning = true;
+		StartCoroutine(FadeRoutine(0f, 1f, fadeInDuration));
 	}
 
 	private IEnumerator FadeAndTeleportRoutine(Transform playerTransform, CharacterController controller, Vector3 targetPosition)
 	{
-		_isTransitioning = true;
+		isTransitioning = true;
 
 		//start fade in
-		yield return StartCoroutine(FadeRoutine(0f, 1f, _fadeInDuration));
+		yield return StartCoroutine(FadeRoutine(0f, 1f, fadeInDuration));
 
 		// teleport the player after the fade in is complete
 
@@ -52,18 +53,10 @@ public class FadeTransition : MonoBehaviour
 		yield return new WaitForSeconds(0.1f);
 
 		// fade back to the game
-		yield return StartCoroutine(FadeRoutine(1f, 0f, _fadeOutDuration));
+		yield return StartCoroutine(FadeRoutine(1f, 0f, fadeOutDuration));
 
 		// unlock so it can be retriggered again
-		_isTransitioning = false;
-	}
-
-	private IEnumerator FadeInRoutine()
-	{
-		_isTransitioning = true;
-
-		// Fade in to solid Alpha 0 -> 1
-		yield return StartCoroutine(FadeRoutine(0f, 1f, _fadeInDuration));
+		isTransitioning = false;
 	}
 
 	private IEnumerator FadeRoutine(float startAlpha, float endAlpha, float duration)
@@ -74,10 +67,10 @@ public class FadeTransition : MonoBehaviour
 		{
 			elapsedTime += Time.deltaTime;
 			float currentAlpha = Mathf.Lerp(startAlpha, endAlpha, elapsedTime / duration);
-			_group.alpha = currentAlpha;
+			group.alpha = currentAlpha;
 			yield return null;
 		}
 
-		_group.alpha = endAlpha;
+		group.alpha = endAlpha;
 	}
 }
