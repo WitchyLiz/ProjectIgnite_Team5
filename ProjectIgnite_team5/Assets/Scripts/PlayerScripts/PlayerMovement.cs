@@ -15,7 +15,6 @@ public class PlayerMovement : MonoBehaviour
     // Movement
     private float _movementSpeed = 2.5f;
     private float _gravity = -20f;
-    private float _jumpHeight = 1.5f;
     private float _verticalVelocity;
     private Vector2 _moveInput;
 
@@ -25,14 +24,12 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _mouseRot;
     private float _xRot = 0f;
     private float _yRot = 0f;
-    private float _lookSpeed = 1.5f;
+    private float _lookSpeed = 1.75f;
 
     //variables for smoother rotation
-    private float _drag = 0.04f;
+    private float _smoothing = 40f;
     private float _currentXRot;
     private float _currentYRot;
-    private float _xRotVelocity;
-    private float _yRotVelocity;
 
     void Awake()
     {
@@ -44,23 +41,26 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         ApplyGravity();
-        GetRotation();
         Move();
+    }
+
+    private void LateUpdate()
+    {
+        GetRotation();
     }
 
     private void GetRotation()
     {
 
-        // Gets the base rotation
-        _xRot -= _mouseRot.y;
-        _xRot = Mathf.Clamp(_xRot, -35f, 35f);
-        _yRot += _mouseRot.x;
+        _yRot += _mouseRot.x * _lookSpeed;
+        _xRot -= _mouseRot.y * _lookSpeed;
+        _xRot = Mathf.Clamp(_xRot, -50f, 50f);
 
-        // Ensures the camera rotates smoothly and doesn't snap.
-        _currentXRot = Mathf.SmoothDamp(_currentXRot, _xRot, ref _xRotVelocity, _drag);
-        _currentYRot = Mathf.SmoothDamp(_currentYRot, _yRot, ref _yRotVelocity, _drag);
+        float t = 1f - Mathf.Exp(-_smoothing * Time.deltaTime);
+        _currentXRot = Mathf.Lerp(_currentXRot, _xRot, t);
+        _currentYRot = Mathf.Lerp(_currentYRot, _yRot, t);
 
-        transform.rotation = Quaternion.Euler(_currentXRot * _lookSpeed, _currentYRot * _lookSpeed, 0f);
+        transform.rotation = Quaternion.Euler(_currentXRot, _currentYRot, 0f);
     }
 
     private void Move() 
